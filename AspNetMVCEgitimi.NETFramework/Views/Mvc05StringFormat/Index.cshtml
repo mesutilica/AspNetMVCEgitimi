@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "String Format ile Veri Formatlama";
+
+    DateTime tarih = DateTime.Now;
+}
+
+<h2>String Format ile Veri Formatlama</h2>
+
+<h3>Tarih Formatları</h3>
+
+@tarih
+
+<hr />
+
+@("Ayın Günü - dd : " + String.Format("{0:dd}", tarih))
+
+<hr />
+
+@("Ay - MM : " + String.Format("{0:MM}", tarih))
+
+<hr />
+
+@("Ay - MMMM : " + String.Format("{0:MMMM}", tarih))
+
+<hr />
+
+@("Yıl - yyyy : " + String.Format("{0:yyyy}", tarih))
+
+<hr />
+
+@("Saat - hh : " + String.Format("{0:hh}", tarih))
+
+<hr />
+
+@("Dakika - mm : " + String.Format("{0:mm}", tarih))
+
+<hr />
+
+@("Saniye - ss : " + String.Format("{0:ss}", tarih))
+
+<hr />
+
+@("Kısa Saat - t : " + String.Format("{0:t}", tarih))
+
+<hr />
+
+@("Kısa Tarih - d : " + String.Format("{0:d}", tarih))
+
+<h3>Sayı Formatları</h3>
+
+@("0:C -  : " + String.Format("{0:C}", 10.50))
+
+<hr />
+
+@("0:D3 -  : " + String.Format("{0:D3}", 10))
+
+<hr />
+
+@("0:D5 -  : " + String.Format("{0:D5}", 10))
+
+<hr />
+
+@("0:F1 -  : " + String.Format("{0:F1}", 15.9))
+
+<hr />
+
+@("0:F2 -  : " + String.Format("{0:F2}", 15.9))
+
+<hr />
+
+@("0:F3 -  : " + String.Format("{0:F3}", 15.9))
+
+<hr />
+
+@("0:N -  : " + String.Format("{0:N}", 15000))
+
+<hr />
+
+@("0:0000.00 -  : " + String.Format("{0:0000.00}", 15.5))
+
+<hr />
+
+@("0:###.## -  : " + String.Format("{0:###.##}", 15.555))
+

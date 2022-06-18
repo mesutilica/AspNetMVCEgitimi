@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Mvc02 Html Helpers";
+}
+
+<h2>Mvc02 Html Helpers</h2>
+
+<p>
+    MVC de Ekranda html elementleri oluşturmak için Html Helpers denilen yapı kullanılıyor.
+</p>
+
+@Html.ActionLink("Anasayfa", "Index") Bu kod ekranda a elementi oluşturur.
+
+<a href="#">content</a>
+
+<hr />
+
+@Html.ActionLink("Anasayfa", "Index", "Home")
+
+@Html.ActionLink("Hakkımızda", "About", "Home")
+
+<hr />
+
+<h3>Checkbox Oluşturma</h3>
+
+@Html.CheckBox("Onayla") Onaylıyorum
+
+<hr />
+
+<h3>Textbox Oluşturma</h3>
+
+@Html.Editor("txtAd") Ekranda textbox oluşturur
+
+<hr />
+
+<h3>Gizli(Hidden Field) Element Oluşturma</h3>
+
+@Html.Hidden("gizliElement", "Hidden field içindeki bilgi kullanıcıya gösterilmez")
+
+<hr />
+
+<h3>Label Elementi</h3>
+
+@Html.Label("lblAd", "Label etiketi oluşturur")
+
+<hr />
+
+<h3>Textarea Elementi</h3>
+
+@Html.TextArea("txtAdres", "TextArea(çok satırlı input) elementi oluşturur")
+
+<hr />
+
+<h3>TextBox Elementi</h3>
+
+@Html.TextBox("txtSoyad", "TextBox Elementi")
+
+<hr />
+
+<h3>Password Elementi</h3>
+
+@Html.Password("txtPassword")
+
+<hr />
+
+<h3>Html Helpers ile Form Oluşturma</h3>
+
+@using (Html.BeginForm())
+{
+    <h4>Kullanıcı Adı</h4>
+    @Html.Editor("txtKullaniciAdi")
+    <h4>Şifre</h4>
+    @Html.Password("txtPassword")
+    <br />
+    <input id="Submit1" type="submit" value="Giriş" />
+}
+
+<hr />
+
+@{
+    SelectListItem[] liste = new SelectListItem[3]
+    {
+        new SelectListItem() { Text = "Bilgisayar" },
+        new SelectListItem() { Text = "Monitör" },
+        new SelectListItem() { Text = "Tablet" }
+                    };
+}
+
+<h3>Listbox Elementi Kullanımı</h3>
+
+@Html.ListBox("lbListe", liste)
+
+<hr />
+
+<h3>RadioButton Elementi Kullanımı</h3>
+
+@Html.RadioButton("rbOnay", "Onaylıyorum") Sözleşmeyi Kabul Ediyorum
+
+<hr />
+
+@Html.Raw("<h3>Html.Raw ile ekrana html formatında içerik ekleyebiliriz</h3>")

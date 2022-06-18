@@ -1,0 +1,64 @@
+﻿@model AspNetMVCEgitimi.NETFramework.Models.Adres
+
+@{
+    ViewBag.Title = "Adres Bilgileri";
+}
+
+<h2>Adres Bilgileri</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>Şehir</td>
+            <td>
+                @Html.EditorFor(model => model.Sehir)
+            </td>
+        </tr>
+        <tr>
+            <td>İlçe</td>
+            <td>
+                @Html.EditorFor(model => model.Ilce)
+            </td>
+        </tr>
+        <tr>
+            <td>Açık Adres</td>
+            <td>
+                @Html.EditorFor(model => model.AcikAdres)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="Submit1" type="submit" value="Gönder" />
+            </td>
+        </tr>
+    </table>
+}
+
+@ViewBag.Mesaj
+<hr />
+@ViewData["Vdata"]
+<hr />
+@TempData["Tdata"]
+
+<h3>
+    Model kullanarak verileri gösterme
+</h3>
+
+@{
+    if (IsPost)
+    {
+        <div>
+            Şehir : @Model.Sehir
+        </div>
+
+        <div>
+            İlçe : @Model.Ilce
+        </div>
+
+        <div>
+            Açık Adres : @Model.AcikAdres
+        </div>
+    }
+
+}

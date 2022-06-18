@@ -1,0 +1,47 @@
+﻿@model AspNetMVCEgitimi.NETFramework.Models.Kullanici
+
+@*sayfaya model tanımlaması m harfi küçük model ifadesinden sonra ilgili classın namespace adresi ile yapılır*@
+
+@{
+    ViewBag.Title = "Kullanici";
+}
+
+<h2>Kullanici</h2>
+
+@using (Html.BeginForm())
+{
+    <div>Ad : @Html.TextBoxFor(model => model.Ad)</div>
+    <div>Soyad : @Html.TextBoxFor(model => model.Soyad)</div>
+    <div>Email : @Html.TextBoxFor(model => model.Email)</div>
+    <div>Şifre : @Html.TextBoxFor(model => model.Sifre)</div>
+    <div>Kullanıcı Adı : @Html.TextBoxFor(model => model.KullaniciAdi)</div>
+    <div><input id="Submit1" type="submit" value="Gönder" /></div>
+}
+
+
+@if (IsPost)
+{
+    @ViewBag.Mesaj
+    <hr />
+    @ViewData["Vdata"]
+    <hr />
+    @TempData["Tdata"]
+}
+
+<h3>
+    Model üzerinden gelen datayı ekranda gösterme
+</h3>
+
+<div>
+    Adı : @Model.Ad
+    <hr />
+    Soyadı : @Model.Soyad
+</div>
+
+<p>
+    Dikkat! Model null gelirse sayfa hata verir!! Hata vermemesi için if şartı içinde Model !=null şeklinde kontrol edilmesi gerekir.
+    @if (Model != null)
+    {
+        @Model.Sifre
+    }
+</p>

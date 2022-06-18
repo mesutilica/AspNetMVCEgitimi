@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "MVC View dan Controller a veri gönderme";
+}
+
+<h2>MVC View dan Controller a veri gönderme</h2>
+
+<h3>GET Metoduyla veri gönderme</h3>
+
+<div>
+    @using (Html.BeginForm("Index", "Mvc09ViewToController", FormMethod.Get))
+    {
+        @Html.TextBox("txtAra")
+        <input type="submit" value="Ara" />
+    }
+</div>
+
+<p>
+    Get metoduyla formdan butona basılırsa veriler adres çubuğu üzerinden get metoduna QueryString yöntemiyle iletilir. Adres çubuğundaki ?txtAra=monitör kısmındaki txtAra ilgili input un name değeridir, monitör ise bu parametrenin taşıdığı değer.
+</p>
+
+@ViewBag.GetVerisi
+
+<hr />
+
+<h2>MVC View dan Controller a Post Metodu ile veri gönderme</h2>
+
+@{
+    SelectListItem[] liste = new SelectListItem[3]
+    {
+       new SelectListItem() { Text="Bilgisayar" },
+       new SelectListItem() { Text="Monitör"  },
+       new SelectListItem() { Text="Tablet" }
+                                            };
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.TextBox("text1")
+            <hr />
+            @Html.DropDownList("ddlListe", liste)
+            <hr />
+            @Html.CheckBox("cbOnay") <label>Onaylıyorum</label>
+            <hr />
+            <input type="submit" value="Gönder" />
+        }
+    </div>
+
+    <hr />
+
+    if (IsPost) // Eğer sayfa post edildiyse
+    {
+        @ViewBag.Mesaj
+        <hr />
+        @ViewData["Vdata"]
+        <hr />
+        @TempData["Tdata"]
+        <hr />
+
+        <h3>2. yöntem (Request.Form) ile </h3>
+
+        @ViewBag.Mesaj2
+        <hr />
+        @ViewData["Vdata2"]
+        <hr />
+        @TempData["Tdata2"]
+    }
+
+}

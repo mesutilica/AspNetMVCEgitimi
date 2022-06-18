@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "MVC Razor Syntax Kullanımı";
+
+    string isim = "Ali"; // ön yüzde c# değişkeni oluşturabiliriz
+
+    string[] isimler = new string[] { "Alp", "Sercan", "Ahsen" }; // c# dizisi
+}
+
+<h2>Yeni Controller Oluşturma</h2>
+
+<p>
+    Mvc de kendi controller ımızı oluşturmak için Controllers klasörüne sağ tıklayıp add menüsünden Controller a basıyoruz. Açılan pencerede empty i seçip ok ile devam ediyoruz. Açılan pencerede sonu controller ile biten dosyaya bir isim verip ok diyoruz.
+</p>
+
+@isim
+<br />
+<h3>@isim</h3>
+
+@foreach (var ad in isimler)
+{
+    <text>İsim : </text> @(ad + " ")
+    <b>@ad</b>
+    <hr />
+}

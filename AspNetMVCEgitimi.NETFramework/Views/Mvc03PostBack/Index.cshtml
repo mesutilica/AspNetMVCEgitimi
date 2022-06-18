@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Mvc PostBack İşlemi";
+
+    string postMesaji = "";
+    string mesajKutusu = "";
+
+    if (IsPost) // Eğer sayfada bir post işlemi gerçekleşmişse
+    {
+        postMesaji = "Sayfa post ile sunucuya gönderildi";
+        mesajKutusu = "<script>alert('Post işlemi gerçekleşti!')</script>";
+    }
+
+}
+
+<h2>Mvc PostBack İşlemi</h2>
+
+<form method="post">
+    <input id="Text1" type="text" />
+    <input id="Submit1" type="submit" value="Gönder" />
+</form>
+
+@postMesaji
+
+<br />
+
+@mesajKutusu
+
+@Html.Raw(mesajKutusu)
+
+<form method="get">
+    <input id="Text2" type="text" name="kelime" />
+    <input id="Submit2" type="submit" value="Gönder" />
+</form>
+
+<p>
+    Get metoduyla sunucuya veri gönderirsek veriler query string sistemiyle adres çubuğu üzerinden iletilir.
+    Post metodunda ise sayfanın arka planında gizli olarak taşınır.
+</p>

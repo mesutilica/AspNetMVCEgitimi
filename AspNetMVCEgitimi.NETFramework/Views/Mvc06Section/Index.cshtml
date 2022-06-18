@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Mvc Section Kullanımı";
+}
+
+<h2>Mvc Section Kullanımı</h2>
+
+<section>
+    Burası html section element içeriği
+</section>
+
+@section scripts
+{
+    @*<script>alert('Section scripts çalıştı')</script>*@
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+}
+
+@section SayfaAdi
+{
+    <b>Mvc Section Kullanım</b>
+}
+
+@section OzelCss
+{
+    <style>
+        body {
+            background-color: red;
+            color: white;
+        }
+    </style>
+}
