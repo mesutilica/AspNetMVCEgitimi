@@ -131,11 +131,15 @@
     <Compile Include="Controllers\Mvc08ControllerToViewController.cs" />
     <Compile Include="Controllers\Mvc09ViewToControllerController.cs" />
     <Compile Include="Controllers\Mvc10ModelBindingController.cs" />
+    <Compile Include="Controllers\Mvc11ModelValidationController.cs" />
+    <Compile Include="Controllers\Mvc12SessionController.cs" />
+    <Compile Include="Controllers\Mvc13CookieController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Adres.cs" />
     <Compile Include="Models\Kullanici.cs" />
+    <Compile Include="Models\Uye.cs" />
     <Compile Include="Models\UyeSayfasiViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -190,6 +194,13 @@
     <Content Include="Views\Mvc10ModelBinding\Kullanici.cshtml" />
     <Content Include="Views\Mvc10ModelBinding\Adres.cshtml" />
     <Content Include="Views\Mvc10ModelBinding\UyeSayfasi.cshtml" />
+    <Content Include="Views\Mvc11ModelValidation\YeniUye.cshtml" />
+    <Content Include="Views\Mvc11ModelValidation\UyeDuzenle.cshtml" />
+    <Content Include="Views\Mvc11ModelValidation\UyeListesi.cshtml" />
+    <Content Include="Views\Mvc11ModelValidation\UyeSil.cshtml" />
+    <Content Include="Views\Mvc12Session\Index.cshtml" />
+    <Content Include="Views\Mvc12Session\Sessions.cshtml" />
+    <Content Include="Views\Mvc13Cookie\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Sessions";
+}
+
+<h2>Sessions</h2>
+
+@{
+    if (Session["deger"] != null)
+    {
+        @Session["deger"]
+
+        using (Html.BeginForm())
+        {
+            <input id="Submit1" type="submit" value="Sessionu Sil" />
+        }
+
+    }
+}
+
+@{
+    if (Session["seysin"] != null)
+    {
+        @Session["seysin"]
+
+        using (Html.BeginForm())
+        {
+            <input id="Submit1" type="submit" value="2. Sessionu Sil" />
+        }
+
+    }
+}

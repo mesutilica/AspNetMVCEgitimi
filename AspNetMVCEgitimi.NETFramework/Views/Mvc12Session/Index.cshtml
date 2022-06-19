@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Mvc de Session Kullanımı";
+}
+
+<h2>Mvc de Session Kullanımı</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("text")
+    <input id="Submit1" type="submit" value="Session Oluştur" />
+}
+
+@{ 
+    if (Session["deger"] != null)
+    {
+        @Session["deger"]
+    }
+}
