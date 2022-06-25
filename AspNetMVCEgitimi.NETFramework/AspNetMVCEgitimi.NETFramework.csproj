@@ -134,6 +134,8 @@
     <Compile Include="Controllers\Mvc11ModelValidationController.cs" />
     <Compile Include="Controllers\Mvc12SessionController.cs" />
     <Compile Include="Controllers\Mvc13CookieController.cs" />
+    <Compile Include="Controllers\Mvc14FileUploadController.cs" />
+    <Compile Include="Controllers\Mvc15ViewResultsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -201,9 +203,16 @@
     <Content Include="Views\Mvc12Session\Index.cshtml" />
     <Content Include="Views\Mvc12Session\Sessions.cshtml" />
     <Content Include="Views\Mvc13Cookie\Index.cshtml" />
+    <Content Include="Views\Mvc13Cookie\CookieOku.cshtml" />
+    <Content Include="Views\Mvc13Cookie\Login.cshtml" />
+    <Content Include="Views\Mvc14FileUpload\Index.cshtml" />
+    <Content Include="Views\Mvc15ViewResults\Index.cshtml" />
+    <Content Include="Views\Shared\_KategorilerPartial.cshtml" />
+    <Content Include="Views\Shared\_KategorilerPartial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

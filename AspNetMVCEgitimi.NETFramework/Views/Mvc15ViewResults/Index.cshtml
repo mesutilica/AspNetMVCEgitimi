@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "MVC View Result Çeşitleri";
+}
+
+<h2>MVC View Result Çeşitleri</h2>
+
+<h3>ActionResult</h3>
+
+<p>
+    ActionResult ile eylem sonucunda geriye bir view dönüyoruz
+</p>
+
+<hr />
+
+@Html.ActionLink("RedirectResult", "Yonlendir")
+
+<hr />
+
+@Html.ActionLink("RedirectToRouteResult", "RoutaYonlendir")
+
+<hr />
+
+<h3>
+    PartialViewResult
+</h3>
+
+<br />
+
+<h4>Kategorileri Partialla Getir</h4>
+
+@Html.Partial("_KategorilerPartial")
+
+<h4>Kategorileri Actionla Getir</h4>
+
+@Html.Action("KategorileriGetirPartial")
+
+<h4>Kategorileri Model Kullanarak Actionla Getir</h4>
+
+@Html.Action("KategorileriModelleGetirPartial")
+

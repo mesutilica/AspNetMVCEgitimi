@@ -8,3 +8,9 @@
 <p>
     Cookie ler istemci tarafında, yani kullanıcının uygulamaya bağlandığı cihazın web tarayıcısında saklanır dolayısıyla kullanıcı adı şifre gibi hassas verilerin burada saklanması tavsiye edilmez!
 </p>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("kuki")
+    <input id="Submit1" type="submit" value="Cookie Oluştur" />
+}

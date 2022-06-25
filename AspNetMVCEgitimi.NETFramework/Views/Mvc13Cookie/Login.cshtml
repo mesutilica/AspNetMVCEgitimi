@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <td>
+                Kullanıcı Adı
+            </td>
+            <td>
+                @Html.TextBox("kullaniciAdi")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Şifre
+            </td>
+            <td>
+                @Html.Password("sifre")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="Submit1" type="submit" value="Giriş" />
+            </td>
+        </tr>
+    </table>
+}
+
+@TempData["Kullanici"]
