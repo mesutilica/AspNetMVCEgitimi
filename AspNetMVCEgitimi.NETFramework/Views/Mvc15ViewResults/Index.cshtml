@@ -39,3 +39,30 @@
 
 @Html.Action("KategorileriModelleGetirPartial")
 
+<h3>FileResult</h3>
+
+@Html.ActionLink("Pdf Dosya Görüntüle", "PdfDosyaGoruntule")
+
+<h3>File Stream Result</h3>
+
+@Html.ActionLink("Metin Dosyası İndir", "MetinDosyasiIndir")
+
+<h3>JavaScript Result</h3>
+
+@Html.ActionLink("JavaScript Result", "JsResult")
+
+@*<script src="/Mvc15ViewResults/JsResult"></script>*@
+
+<script src="/Mvc15ViewResults/JsButtonClick"></script>
+
+<div>
+    <input id="Button1" type="button" value="Tıkla" onclick="button_click()" />
+</div>
+
+<hr />
+
+@Html.ActionLink("Json Result", "JsonGoruntule")
+
+<hr />
+
+@Html.ActionLink("Xml Content Result", "XmlContentResult")
