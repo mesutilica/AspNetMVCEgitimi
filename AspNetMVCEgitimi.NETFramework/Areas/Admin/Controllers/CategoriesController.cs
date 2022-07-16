@@ -46,41 +46,55 @@ namespace AspNetMVCEgitimi.NETFramework.Areas.Admin.Controllers
         }
 
         // GET: Admin/Categories/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id) // ? işareti id nin null olabileceğini belirtir
         {
-            return View();
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            var kategori = context.Categories.Find(id); // kategorilerden adres çubuğundan id si gönderileni bul
+
+            return View(kategori);
         }
 
         // POST: Admin/Categories/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Category category)
         {
             try
             {
                 // TODO: Add update logic here
-
+                context.Entry(category).State = System.Data.Entity.EntityState.Modified; // Bize ön yüzden gönderilen category nesnesini güncellenecek olarak değiştir.
+                context.SaveChanges(); // Değişiklikleri veritabanına işle
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(category);
             }
         }
 
         // GET: Admin/Categories/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Category kategori = context.Categories.Find(id); // kategorilerden adres çubuğundan id si gönderileni bul
+
+            return View(kategori);
         }
 
         // POST: Admin/Categories/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Category category)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                context.Entry(category).State = System.Data.Entity.EntityState.Deleted; // Silme sayfasından gönderilen category nesnesini yakala ve onu silinecek olarak işaretle
+                context.SaveChanges(); // veritabanına değişiklikleri işle
                 return RedirectToAction("Index");
             }
             catch

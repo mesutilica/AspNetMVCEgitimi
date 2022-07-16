@@ -17,7 +17,7 @@ namespace AspNetMVCEgitimi.NETFramework.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Categories", action = "Index", id = UrlParameter.Optional } // Adres çubuğunda site adından sonra /Admin/ yazdığımızda varsayılan olarak hangi controller ve hangi action çalışsın.
             );
         }
     }
