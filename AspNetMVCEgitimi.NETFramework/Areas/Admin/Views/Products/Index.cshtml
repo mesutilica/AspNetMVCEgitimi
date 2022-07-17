@@ -9,8 +9,11 @@
 <p>
     @Html.ActionLink("Yeni Ürün Ekle", "Create")
 </p>
-<table class="table">
+<table class="table table-striped table-hover">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -29,6 +32,9 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>

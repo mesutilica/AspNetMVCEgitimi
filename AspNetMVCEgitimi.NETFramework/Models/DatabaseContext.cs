@@ -6,5 +6,6 @@ namespace AspNetMVCEgitimi.NETFramework.Models
     {
         public DbSet<Product> Products { get; set; } // Veritabanı tablolarımızı temsil edecek classlarımızı dbset olarak tanımlıyoruz
         public DbSet<Category> Categories { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
