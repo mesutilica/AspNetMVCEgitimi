@@ -1,0 +1,6 @@
+﻿@model IEnumerable<AspNetMVCEgitimi.NETFramework.Models.Category>
+
+@foreach (var kategori in Model)
+{
+    <li><a href="/Categories/Index/@kategori.Id" class="nav-link px-2 text-white">@kategori.Name</a></li>
+}

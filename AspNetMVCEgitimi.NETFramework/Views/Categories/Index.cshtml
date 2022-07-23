@@ -1,0 +1,22 @@
+﻿@model AspNetMVCEgitimi.NETFramework.Models.Category
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+<div class="row">
+    @foreach (var urun in Model.Products)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="~/Images/@urun.Image" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@urun.Name</h5>
+                <p class="card-text">@urun.Price ₺</p>
+                <a href="/Products/Detail/@urun.Id" class="btn btn-primary">Ürünü İncele</a>
+            </div>
+        </div>
+    }
+
+</div>

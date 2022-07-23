@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AspNetMVCEgitimi.NETFramework.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,10 @@ namespace AspNetMVCEgitimi.NETFramework.Controllers
 {
     public class HomeController : Controller
     {
+        DatabaseContext context = new DatabaseContext();
         public ActionResult Index()
         {
-            return View();
+            return View(context.Products.ToList());
         }
 
         public ActionResult About()
@@ -25,6 +27,11 @@ namespace AspNetMVCEgitimi.NETFramework.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult _PartialMenu()
+        {
+            return PartialView(context.Categories.ToList());
         }
     }
 }

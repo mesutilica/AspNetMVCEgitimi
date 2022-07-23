@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Admin</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -19,6 +19,7 @@
                     <li><a href="#" class="nav-link px-2 text-secondary">Anasayfa</a></li>
                     <li><a href="/Admin/Categories" class="nav-link px-2 text-white">Kategori Yönetimi</a></li>
                     <li><a href="/Admin/Products" class="nav-link px-2 text-white">Ürün Yönetimi</a></li>
+                    <li><a href="/Admin/Users" class="nav-link px-2 text-white">Kullanıcı Yönetimi</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="/Admin/Products/Index">
@@ -26,8 +27,8 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Giriş</button>
-                    <button type="button" class="btn btn-warning">Kayıt</button>
+                    <a href="/" target="_blank" class="btn btn-outline-light me-2">Siteyi Görüntüle</a>
+                    <a href="/Admin/Login/Logout" class="btn btn-danger">Çıkış</a>
                 </div>
             </div>
         </div>

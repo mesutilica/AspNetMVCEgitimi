@@ -1,0 +1,17 @@
+﻿@model AspNetMVCEgitimi.NETFramework.Models.Product
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="row">
+    <div class="col-sm-5">
+        <img src="~/Images/@Model.Image" alt="@Model.Name" title="@Model.Name" class="img-fluid" />
+    </div>
+    <div class="col-sm-7">
+        <h2>@Model.Name</h2>
+        <h3>Fiyatı : @Model.Price TL</h3>
+        <h4>Stok : @Model.Stock</h4>
+
+    </div>
+</div>
