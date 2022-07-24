@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Asp .Net Core Yenilikler</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h3>Section Kullanımı</h3>
+
+@section scripts
+    {
+    <script>
+        console.log("scripts isimli section çalıştı!")
+    </script>
+}
+
+    @section Style
+    {
+    <style>
+        main h1 { background-color: red; color: white; padding: 3rem 1rem; }
+    </style>
+}
+
+    <h3>Partial Kullanımı</h3>
+
+    <partial name="_PartialMenu" />
+
+    <hr />
+
+    <h3>Session Kullanımı</h3>
+
+    <p>
+        Uygulamada session kullanmak için Program.cs dosyasında önce servis olarak session ı ekleyip sonrasında app.usesession ile talimat verdik.
+    </p>
+
+    <h3>Cookie Kullanımı</h3>
+
+    <a asp-action="CookieOlustur" class="btn btn-primary">Cookie Oluştur</a>
+
+    <a asp-action="CookieOku" class="btn btn-success">Cookie Oku</a>
+
+    <p>
+        uygulamada cookie kullanabilmek için Program.cs dosyasında app.UseCookiePolicy(); kodunu eklemeliyiz. Sonrasında home controllerdaki kodlar ile cookie oluşturabilir, okuyabilir veya silebiliriz.
+    </p>
+
+    <h3>App Settingsden Veri Okuma</h3>
+
+    <a asp-action="AppSetting" class="btn btn-outline-dark">AppSetting</a>
