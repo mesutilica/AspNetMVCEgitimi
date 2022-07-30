@@ -1,14 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AspNetMVCEgitimi.NETCore.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetMVCEgitimi.NETCore.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ProductsController : Controller
     {
+        DatabaseContext context = new();
         // GET: ProductsController
-        public ActionResult Index()
+        public async Task<ActionResult> IndexAsync()
         {
-            return View();
+            return View(await context.Products.ToListAsync());
         }
 
         // GET: ProductsController/Details/5
@@ -18,60 +23,72 @@ namespace AspNetMVCEgitimi.NETCore.Areas.Admin.Controllers
         }
 
         // GET: ProductsController/Create
-        public ActionResult Create()
+        public async Task<ActionResult> CreateAsync()
         {
+            ViewBag.CategoryId = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
             return View();
         }
 
         // POST: ProductsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(Product product)
         {
             try
             {
+                await context.Products.AddAsync(product);
+                await context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Hata Oluştu!");
             }
+            ViewBag.CategoryId = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
+            return View(product);
         }
 
         // GET: ProductsController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> EditAsync(int id)
         {
-            return View();
+            ViewBag.CategoryId = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
+            return View(await context.Products.FindAsync(id));
         }
 
         // POST: ProductsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> EditAsync(int id, Product product)
         {
             try
             {
+                context.Entry(product).State = EntityState.Modified;
+                await context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Hata Oluştu!");
             }
+            ViewBag.CategoryId = new SelectList(await context.Categories.ToListAsync(), "Id", "Name");
+            return View(product);
         }
 
         // GET: ProductsController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            return View();
+            return View(await context.Products.FindAsync(id));
         }
 
         // POST: ProductsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, Product product)
         {
             try
             {
+                context.Products.Remove(product);
+                await context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch

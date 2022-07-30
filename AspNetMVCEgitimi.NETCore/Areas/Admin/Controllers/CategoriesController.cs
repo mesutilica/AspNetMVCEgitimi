@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AspNetMVCEgitimi.NETCore.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspNetMVCEgitimi.NETCore.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoriesController : Controller
     {
+        DatabaseContext context = new();
         // GET: CategoriesController
-        public ActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            return View(await context.Categories.ToListAsync());
         }
 
         // GET: CategoriesController/Details/5
@@ -26,52 +30,60 @@ namespace AspNetMVCEgitimi.NETCore.Areas.Admin.Controllers
         // POST: CategoriesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAsync(Category category)
         {
             try
             {
+                await context.Categories.AddAsync(category);
+                await context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Hata Oluştu!");
             }
+            return View(category);
         }
 
         // GET: CategoriesController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> EditAsync(int id)
         {
-            return View();
+            return View(await context.Categories.FindAsync(id));
         }
 
         // POST: CategoriesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, Category category)
         {
             try
             {
+                context.Entry(category).State = EntityState.Modified;
+                await context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Hata Oluştu!");
             }
+            return View(category);
         }
 
         // GET: CategoriesController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            return View();
+            return View(await context.Categories.FindAsync(id));
         }
 
         // POST: CategoriesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, Category category)
         {
             try
             {
+                context.Categories.Remove(category);
+                await context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
