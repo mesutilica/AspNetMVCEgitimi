@@ -1,5 +1,6 @@
 using AspNetMVCEgitimi.NETCore.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies; // .net core da login iþlemi için gerekli kütüphane
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,11 @@ builder.Services.AddSession(option =>
     option.IdleTimeout = TimeSpan.FromMinutes(1); // session a 1 dk lýk yaþam süresi tanýmladýk
 }); // Projede session kullanabilmek için bu kodu eklemeliyiz!
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer()); // DatabaseContext i projeye ekledik ve sql server kullanacaðýmýzý belirttik
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+{
+    x.LoginPath = "/Admin/Login"; // oturum açma sayfamýzý belirttik
+});
 
 var app = builder.Build();
 
@@ -30,7 +36,8 @@ app.UseCookiePolicy(); // uygulamada cookie kullanabilmek için
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication(); // uygulamamýzda oturum iþlemini kullanacaðýmýzý belirttik
+app.UseAuthorization(); // yetkilendirme
 
 // Aþaðýdaki kodu admin areasýný kullanabilmek için ekledik!
 app.MapControllerRoute(

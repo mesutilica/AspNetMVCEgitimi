@@ -12,6 +12,7 @@ namespace AspNetMVCEgitimi.NETCore.Models
         public DbSet<Product> Products { get; set; } // Veritabanı tablolarımızı temsil edecek classlarımızı dbset olarak tanımlıyoruz
         public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Brand> Brands { get; set; } // DatabaseContext e sonradan bir dbset eklenirse Package manager console dan yeni bir migration oluşturup update-database komutunu çalıştırmamız gerekir
         public DatabaseContext()
         {
 

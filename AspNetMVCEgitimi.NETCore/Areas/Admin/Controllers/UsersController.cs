@@ -1,11 +1,11 @@
 ﻿using AspNetMVCEgitimi.NETCore.Models;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspNetMVCEgitimi.NETCore.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize]
     public class UsersController : Controller
     {
         DatabaseContext context = new DatabaseContext();

@@ -6,9 +6,16 @@
 
 <h1>Ürünler</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-outline-primary">Yeni Ekle</a>
-</p>
+<div class="row">
+    <div class="col">
+        <a asp-action="Create" class="btn btn-outline-primary">Yeni Ekle</a>
+    </div>
+    <div class="col">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="/Admin/Products/Index">
+            <input id="ara" name="search" type="search" class="form-control form-control-dark" placeholder="Ara..." aria-label="Search">
+        </form>
+    </div>
+</div>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -44,7 +51,7 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Image)
+                    <img src="/Img/@item.Image" alt="" height="50" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.Name)
